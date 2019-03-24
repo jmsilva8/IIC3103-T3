@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=h @details['name'] %></title>
+  </head>
+  <body>
+    <h1><%=h @details['name'] %></h1>
+    <table>
+      <tbody>
+        <tr>
+          <td>Periodo de rotacion</td>
+          <td><%=h @details['rotation_period']%></td>
+        </tr>
+        <tr>
+          <td>Periodo orbital</td>
+          <td><%=h @details['orbital_period'] %></td>
+        </tr>
+        <tr>
+          <td>Diametro</td>
+          <td><%=h @details['diameter'] %></td>
+        </tr>
+        <tr>
+          <td>Clima</td>
+          <td><%=h @details['climate'] %></td>
+        </tr>
+        <tr>
+          <td>Gravedad</td>
+          <td><%=h @details['gravity'] %></td>
+        </tr>
+        <tr>
+          <td>Terreno</td>
+          <td><%=h @details['terrain'] %></td>
+        </tr>
+        <tr>
+          <td>Superficie del agua</td>
+          <td><%=h @details['surface_water'] %></td>
+        </tr>
+        <tr>
+          <td>Poblacion</td>
+          <td><%=h @details['population'] %></td>
+        </tr>
+        <tr>
+          <td>Peliculas</td>
+          <td>
+            <% @details['films'].each do |film| %>
+              <%= link_to api_call(film, false), "../films/#{get_id(film)}" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Residentes</td>
+          <td>
+            <% @details['residents'].each do |resident| %>
+              <%= link_to api_call(resident, true), "../ships/#{get_id(resident)}" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

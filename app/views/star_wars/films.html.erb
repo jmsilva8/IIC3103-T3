@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=h @details['title'] %></title>
+  </head>
+  <body>
+    <h1><%=h @details['title'] %></h1>
+    <table>
+      <tbody>
+        <tr>
+          <td>Espisodio</td>
+          <td><%=h @id %></td>
+        </tr>
+        <tr>
+          <td>Director</td>
+          <td><%=h @details['director'] %></td>
+        </tr>
+        <tr>
+          <td>Productor(es)</td>
+          <td><%=h @details['producer'] %></td>
+        </tr>
+        <tr>
+          <td>Fecha de lanzamiento</td>
+          <td><%=h @details['release_date'] %></td>
+        </tr>
+        <tr>
+          <td>Texto de apertura</td>
+          <td><%=h @details['opening_crawl'] %></td>
+        </tr>
+        <tr>
+          <td>Personajes</td>
+          <td>
+            <% @details['characters'].each do |character| %>
+              <%= link_to api_call(character, true), "../characters/#{get_id(character)}" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Planetas</td>
+          <td>
+            <% @details['planets'].each do |planet| %>
+              <%= link_to api_call(planet, true), "../planets/#{get_id(planet)}" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Naves</td>
+          <td>
+            <% @details['starships'].each do |starship| %>
+              <%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%=h @details['name'] %></title>
+  </head>
+  <body>
+    <h1><%=h @details['name'] %></h1>
+    <table>
+      <tbody>
+        <tr>
+          <td>Modelo</td>
+          <td><%=h @details['model']%></td>
+        </tr>
+        <tr>
+          <td>Fabricante</td>
+          <td><%=h @details['manufacturer'] %></td>
+        </tr>
+        <tr>
+          <td>Costo en creditos</td>
+          <td><%=h @details['cost_in_credits'] %></td>
+        </tr>
+        <tr>
+          <td>Largo</td>
+          <td><%=h @details['length'] %></td>
+        </tr>
+        <tr>
+          <td>Velocidad maxima atmosferica</td>
+          <td><%=h @details['max_atmosphering_speed'] %></td>
+        </tr>
+        <tr>
+          <td>Tripulacion</td>
+          <td><%=h @details['crew'] %></td>
+        </tr>
+        <tr>
+          <td>Pasajeros</td>
+          <td><%=h @details['passengers'] %></td>
+        </tr>
+        <tr>
+          <td>Capacidad de carga</td>
+          <td><%=h @details['cargo_capacity'] %></td>
+        </tr>
+        <tr>
+          <td>Consumibles</td>
+          <td><%=h @details['consumables'] %></td>
+        </tr>
+        <tr>
+          <td>Hyperdrive rating</td>
+          <td><%=h @details['hyperdrive_rating'] %></td>
+        </tr>
+        <tr>
+          <td>MGLT</td>
+          <td><%=h @details['MGLT'] %></td>
+        </tr>
+        <tr>
+          <td>Clase</td>
+          <td><%=h @details['starship_class'] %></td>
+        </tr>
+        <tr>
+          <td>Peliculas</td>
+          <td>
+            <% @details['films'].each do |film| %>
+              <%= link_to api_call(film, false), "../films/#{get_id(film)}" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Pilotos</td>
+          <td>
+            <% @details['pilots'].each do |pilot| %>
+              <%= link_to api_call(pilot, true), "../ships/#{get_id(pilot)}" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

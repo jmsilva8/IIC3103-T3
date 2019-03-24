@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <title><%=h @details['name'] %></title>
+  <body>
+    <h1><%=h @details['name'] %></h1>
+    <table>
+      <tbody>
+        <tr>
+          <td>Altura</td>
+          <td><%=h @details['height']%></td>
+        </tr>
+        <tr>
+          <td>Peso</td>
+          <td><%=h @details['mass'] %></td>
+        </tr>
+        <tr>
+          <td>Color del pelo</td>
+          <td><%=h @details['hair_color'] %></td>
+        </tr>
+        <tr>
+          <td>Color de piel</td>
+          <td><%=h @details['skin_color'] %></td>
+        </tr>
+        <tr>
+          <td>Color de los ojos</td>
+          <td><%=h @details['eye_color'] %></td>
+        </tr>
+        <tr>
+          <td>Año de nacimiento</td>
+          <td><%=h @details['birth_year'] %></td>
+        </tr>
+        <tr>
+          <td>Genero</td>
+          <td><%=h @details['gender'] %></td>
+        </tr>
+        <tr>
+          <td>Planeta natal</td>
+          <td>
+            <%= api_call(@details['homeworld'], true) %>
+        </tr>
+        <tr>
+          <td>Peliculas</td>
+          <td>
+            <% @details['films'].each do |film| %>
+              <%= link_to api_call(film, false), "../films/#{get_id(film)}" %>
+            <% end %>
+          </td>
+        </tr>
+        <tr>
+          <td>Naves</td>
+          <td>
+            <% @details['starships'].each do |starship| %>
+              <%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %>
+            <% end %>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

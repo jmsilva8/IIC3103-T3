@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Tarea 1 Jose Manuel Silva</title>
+  </head>
+  <body>
+    <h1>Tarea 1 Jose Manuel Silva</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Espisodio</th>
+          <th>Nombre</th>
+          <th>Fecha de lanzamiento</th>
+          <th>Director</th>
+          <th>Productor(es)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @films.each do |film| %>
+          <tr>
+            <td><%=h film['episode_id'] %></td>
+            <td><%=link_to film['title'], "films/#{film['episode_id']}"%></td>
+            <td><%=h film['release_date'] %></td>
+            <td><%=h film['director'] %></td>
+            <td><%=h film['producer'] %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </body>
+</html>
