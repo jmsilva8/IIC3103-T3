@@ -19,7 +19,7 @@
         <% @films.each do |film| %>
           <tr>
             <td><%=h film['episode_id'] %></td>
-            <td><%=link_to film['title'], "films/#{film['episode_id']}"%></td>
+            <td><%=link_to film['title'], "films/#{get_id(film['url'])}"%></td>
             <td><%=h film['release_date'] %></td>
             <td><%=h film['director'] %></td>
             <td><%=h film['producer'] %></td>

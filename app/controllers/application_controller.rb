@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
     @ships_res = Array.new
     films['results'].each do |film|
       if film['title'].include? text
-        url = "../films/#{film['episode_id']}"
+        url = "../films/#{get_id(film['url'])}"
         name = film['title']
         tupla = Array[name, url]
         @film_res << tupla

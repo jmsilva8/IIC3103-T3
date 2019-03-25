@@ -73,7 +73,7 @@
             <table border="1" width="100%">
               <% @details['pilots'].each do |pilot| %>
                 <tr>
-                  <td><%= link_to api_call(pilot, true), "../ships/#{get_id(pilot)}" %></td>
+                  <td><%= link_to api_call(pilot, true), "../characters/#{get_id(pilot)}" %></td>
                 </tr>
               <% end %>
             </table>
