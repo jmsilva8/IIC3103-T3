@@ -31,28 +31,52 @@ class ApplicationController < ActionController::Base
         @film_res << tupla
       end
     end
-    people['results'].each do |person|
-      if person['name'].include? text
-        url = "../characters/#{get_id(person['url'])}"
-        name = person['name']
-        tupla = Array[name, url]
-        @people_res << tupla
+    while true
+      people['results'].each do |person|
+        if person['name'].include? text
+          url = "../characters/#{get_id(person['url'])}"
+          name = person['name']
+          tupla = Array[name, url]
+          @people_res << tupla
+        end
+      end
+      if !people['next']
+        break
+      else
+        people = HTTParty.get(people['next'])
+        people.parsed_response
       end
     end
-    planets['results'].each do |planet|
-      if planet['name'].include? text
-        url = "../planets/#{get_id(planet['url'])}"
-        name = planet['name']
-        tupla = Array[name, url]
-        @planets_res << tupla
+    while true
+      planets['results'].each do |planet|
+        if planet['name'].include? text
+          url = "../planets/#{get_id(planet['url'])}"
+          name = planet['name']
+          tupla = Array[name, url]
+          @planets_res << tupla
+        end
+      end
+      if planets['next']
+        planets = HTTParty.get(planets['next'])
+        planets.parsed_response
+      else
+        break
       end
     end
-    starships['results'].each do |starship|
-      if starship['name'].include? text
-        url = "../ships/#{get_id(starship['url'])}"
-        name = starship['name']
-        tupla = Array[name, url]
-        @ships_res << tupla
+    while true
+      starships['results'].each do |starship|
+        if starship['name'].include? text
+          url = "../ships/#{get_id(starship['url'])}"
+          name = starship['name']
+          tupla = Array[name, url]
+          @ships_res << tupla
+        end
+      end
+      if starships['next']
+        starships = HTTParty.get(starships['next'])
+        starships.parsed_response
+      else
+        break
       end
     end
   end
