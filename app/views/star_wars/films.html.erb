@@ -8,7 +8,7 @@
     <table>
       <tbody>
         <tr>
-          <td>Espisodio</td>
+          <td>Episode</td>
           <td><%=h @id %></td>
         </tr>
         <tr>
@@ -16,39 +16,51 @@
           <td><%=h @details['director'] %></td>
         </tr>
         <tr>
-          <td>Productor(es)</td>
+          <td>Producer(s)</td>
           <td><%=h @details['producer'] %></td>
         </tr>
         <tr>
-          <td>Fecha de lanzamiento</td>
+          <td>Release date</td>
           <td><%=h @details['release_date'] %></td>
         </tr>
         <tr>
-          <td>Texto de apertura</td>
+          <td>Opening crawl</td>
           <td><%=h @details['opening_crawl'] %></td>
         </tr>
         <tr>
-          <td>Personajes</td>
+          <td>Characters</td>
           <td>
-            <% @details['characters'].each do |character| %>
-              <%= link_to api_call(character, true), "../characters/#{get_id(character)}" %>
-            <% end %>
+            <table>
+              <% @details['characters'].each do |character| %>
+                <tr>
+                  <td><%= link_to api_call(character, true), "../characters/#{get_id(character)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
         <tr>
-          <td>Planetas</td>
+          <td>Planets</td>
           <td>
-            <% @details['planets'].each do |planet| %>
-              <%= link_to api_call(planet, true), "../planets/#{get_id(planet)}" %>
-            <% end %>
+            <table>
+              <% @details['planets'].each do |planet| %>
+                <tr>
+                  <td><%= link_to api_call(planet, true), "../planets/#{get_id(planet)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
         <tr>
-          <td>Naves</td>
+          <td>Starships</td>
           <td>
-            <% @details['starships'].each do |starship| %>
-              <%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %>
-            <% end %>
+            <table>
+              <% @details['starships'].each do |starship| %>
+                <tr>
+                  <td><%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
       </tbody>

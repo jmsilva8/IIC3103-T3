@@ -8,39 +8,39 @@
     <table>
       <tbody>
         <tr>
-          <td>Modelo</td>
+          <td>Model</td>
           <td><%=h @details['model']%></td>
         </tr>
         <tr>
-          <td>Fabricante</td>
+          <td>Manufacturer</td>
           <td><%=h @details['manufacturer'] %></td>
         </tr>
         <tr>
-          <td>Costo en creditos</td>
+          <td>Cost in credits</td>
           <td><%=h @details['cost_in_credits'] %></td>
         </tr>
         <tr>
-          <td>Largo</td>
+          <td>Length</td>
           <td><%=h @details['length'] %></td>
         </tr>
         <tr>
-          <td>Velocidad maxima atmosferica</td>
+          <td>Max atmosphering speed</td>
           <td><%=h @details['max_atmosphering_speed'] %></td>
         </tr>
         <tr>
-          <td>Tripulacion</td>
+          <td>Crew</td>
           <td><%=h @details['crew'] %></td>
         </tr>
         <tr>
-          <td>Pasajeros</td>
+          <td>Passengers</td>
           <td><%=h @details['passengers'] %></td>
         </tr>
         <tr>
-          <td>Capacidad de carga</td>
+          <td>Cargo capacity</td>
           <td><%=h @details['cargo_capacity'] %></td>
         </tr>
         <tr>
-          <td>Consumibles</td>
+          <td>Consumables</td>
           <td><%=h @details['consumables'] %></td>
         </tr>
         <tr>
@@ -52,23 +52,31 @@
           <td><%=h @details['MGLT'] %></td>
         </tr>
         <tr>
-          <td>Clase</td>
+          <td>Starship class</td>
           <td><%=h @details['starship_class'] %></td>
         </tr>
         <tr>
-          <td>Peliculas</td>
+          <td>Films</td>
           <td>
-            <% @details['films'].each do |film| %>
-              <%= link_to api_call(film, false), "../films/#{get_id(film)}" %>
-            <% end %>
+            <table>
+              <% @details['films'].each do |film| %>
+                <tr>
+                  <td><%= link_to api_call(film, false), "../films/#{get_id(film)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
         <tr>
-          <td>Pilotos</td>
+          <td>Pilots</td>
           <td>
-            <% @details['pilots'].each do |pilot| %>
-              <%= link_to api_call(pilot, true), "../ships/#{get_id(pilot)}" %>
-            <% end %>
+            <table>
+              <% @details['pilots'].each do |pilot| %>
+                <tr>
+                  <td><%= link_to api_call(pilot, true), "../ships/#{get_id(pilot)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
       </tbody>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resultados busqueda</title>
+  </head>
+  <body>
+    <h1>Resultados busqueda</h1>
+    <table>
+      <tbody>
+        <tr>
+          <td>Films</td>
+          <td>
+            <table>
+              <% @film_res.each do |film| %>
+                <tr>
+                  <td><%= link_to film[0], film[1] %></td>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Planets</td>
+          <td>
+            <table>
+              <% @planets_res.each do |planet| %>
+                <tr>
+                  <td><%= link_to planet[0], planet[1] %></td>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Character</td>
+          <td>
+            <table>
+              <% @people_res.each do |person| %>
+                <tr>
+                  <td><%= link_to person[0], person[1] %></td>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+        <tr>
+          <td>Starships</td>
+          <td>
+            <table>
+              <% @ships_res.each do |ship| %>
+                <tr>
+                  <td><%= link_to ship[0], ship[1] %></td>
+                </tr>
+              <% end %>
+            </table>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

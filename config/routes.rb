@@ -9,5 +9,6 @@ Rails.application.routes.draw do
   get 'planets/:id', to: 'star_wars#planets'
   get 'star_wars/characters'
   get 'characters/:id', to: 'star_wars#characters'
+  get 'search', to: 'star_wars#search'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

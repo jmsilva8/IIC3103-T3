@@ -8,51 +8,59 @@
     <table>
       <tbody>
         <tr>
-          <td>Periodo de rotacion</td>
+          <td>Rotation period</td>
           <td><%=h @details['rotation_period']%></td>
         </tr>
         <tr>
-          <td>Periodo orbital</td>
+          <td>Orbital period</td>
           <td><%=h @details['orbital_period'] %></td>
         </tr>
         <tr>
-          <td>Diametro</td>
+          <td>Diameter</td>
           <td><%=h @details['diameter'] %></td>
         </tr>
         <tr>
-          <td>Clima</td>
+          <td>Climate</td>
           <td><%=h @details['climate'] %></td>
         </tr>
         <tr>
-          <td>Gravedad</td>
+          <td>Gravity</td>
           <td><%=h @details['gravity'] %></td>
         </tr>
         <tr>
-          <td>Terreno</td>
+          <td>Terrain</td>
           <td><%=h @details['terrain'] %></td>
         </tr>
         <tr>
-          <td>Superficie del agua</td>
+          <td>Surface water</td>
           <td><%=h @details['surface_water'] %></td>
         </tr>
         <tr>
-          <td>Poblacion</td>
+          <td>Population</td>
           <td><%=h @details['population'] %></td>
         </tr>
         <tr>
-          <td>Peliculas</td>
+          <td>Films</td>
           <td>
-            <% @details['films'].each do |film| %>
-              <%= link_to api_call(film, false), "../films/#{get_id(film)}" %>
-            <% end %>
+            <table>
+              <% @details['films'].each do |film| %>
+                <tr>
+                  <td><%= link_to api_call(film, false), "../films/#{get_id(film)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
         <tr>
-          <td>Residentes</td>
+          <td>Residents</td>
           <td>
-            <% @details['residents'].each do |resident| %>
-              <%= link_to api_call(resident, true), "../ships/#{get_id(resident)}" %>
-            <% end %>
+            <table>
+              <% @details['residents'].each do |resident| %>
+                <tr>
+                  <td><%= link_to api_call(resident, true), "../characters/#{get_id(resident)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
       </tbody>

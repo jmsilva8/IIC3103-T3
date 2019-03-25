@@ -8,52 +8,60 @@
     <table>
       <tbody>
         <tr>
-          <td>Altura</td>
+          <td>Height</td>
           <td><%=h @details['height']%></td>
         </tr>
         <tr>
-          <td>Peso</td>
+          <td>Mass</td>
           <td><%=h @details['mass'] %></td>
         </tr>
         <tr>
-          <td>Color del pelo</td>
+          <td>Hair color</td>
           <td><%=h @details['hair_color'] %></td>
         </tr>
         <tr>
-          <td>Color de piel</td>
+          <td>Skin color</td>
           <td><%=h @details['skin_color'] %></td>
         </tr>
         <tr>
-          <td>Color de los ojos</td>
+          <td>Eye color</td>
           <td><%=h @details['eye_color'] %></td>
         </tr>
         <tr>
-          <td>Año de nacimiento</td>
+          <td>Birth year</td>
           <td><%=h @details['birth_year'] %></td>
         </tr>
         <tr>
-          <td>Genero</td>
+          <td>Gender</td>
           <td><%=h @details['gender'] %></td>
         </tr>
         <tr>
-          <td>Planeta natal</td>
+          <td>Homeworld</td>
           <td>
             <%= api_call(@details['homeworld'], true) %>
         </tr>
         <tr>
-          <td>Peliculas</td>
+          <td>Films</td>
           <td>
-            <% @details['films'].each do |film| %>
-              <%= link_to api_call(film, false), "../films/#{get_id(film)}" %>
-            <% end %>
+            <table>
+              <% @details['films'].each do |film| %>
+                <tr>
+                  <td><%= link_to api_call(film, false), "../films/#{get_id(film)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
         <tr>
-          <td>Naves</td>
+          <td>Starships</td>
           <td>
-            <% @details['starships'].each do |starship| %>
-              <%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %>
-            <% end %>
+            <table>
+              <% @details['starships'].each do |starship| %>
+                <tr>
+                  <td><%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %></td>
+                </tr>
+              <% end %>
+            </table>
           </td>
         </tr>
       </tbody>

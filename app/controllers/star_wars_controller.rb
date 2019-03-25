@@ -51,10 +51,6 @@ class StarWarsController < ApplicationController
     end
   end
 
-  def get_id(url)
-    @id = url.split('/')[-1]
-  end
-
   helper_method :api_call
-  helper_method :get_id
+
 end
