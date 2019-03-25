@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1><%=h @details['name'] %></h1>
-    <table>
+    <table border="1">
       <tbody>
         <tr>
           <td>Model</td>
@@ -58,7 +58,7 @@
         <tr>
           <td>Films</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['films'].each do |film| %>
                 <tr>
                   <td><%= link_to api_call(film, false), "../films/#{get_id(film)}" %></td>
@@ -70,7 +70,7 @@
         <tr>
           <td>Pilots</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['pilots'].each do |pilot| %>
                 <tr>
                   <td><%= link_to api_call(pilot, true), "../ships/#{get_id(pilot)}" %></td>

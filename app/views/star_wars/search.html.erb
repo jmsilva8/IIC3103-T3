@@ -5,12 +5,12 @@
   </head>
   <body>
     <h1>Resultados busqueda</h1>
-    <table>
+    <table border="1">
       <tbody>
         <tr>
           <td>Films</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @film_res.each do |film| %>
                 <tr>
                   <td><%= link_to film[0], film[1] %></td>
@@ -22,7 +22,7 @@
         <tr>
           <td>Planets</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @planets_res.each do |planet| %>
                 <tr>
                   <td><%= link_to planet[0], planet[1] %></td>
@@ -34,7 +34,7 @@
         <tr>
           <td>Character</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @people_res.each do |person| %>
                 <tr>
                   <td><%= link_to person[0], person[1] %></td>
@@ -46,7 +46,7 @@
         <tr>
           <td>Starships</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @ships_res.each do |ship| %>
                 <tr>
                   <td><%= link_to ship[0], ship[1] %></td>

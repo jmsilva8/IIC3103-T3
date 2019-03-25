@@ -5,7 +5,7 @@
   <title><%=h @details['name'] %></title>
   <body>
     <h1><%=h @details['name'] %></h1>
-    <table>
+    <table border="1">
       <tbody>
         <tr>
           <td>Height</td>
@@ -43,7 +43,7 @@
         <tr>
           <td>Films</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['films'].each do |film| %>
                 <tr>
                   <td><%= link_to api_call(film, false), "../films/#{get_id(film)}" %></td>
@@ -55,7 +55,7 @@
         <tr>
           <td>Starships</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['starships'].each do |starship| %>
                 <tr>
                   <td><%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %></td>

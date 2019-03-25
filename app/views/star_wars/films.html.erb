@@ -5,7 +5,7 @@
   </head>
   <body>
     <h1><%=h @details['title'] %></h1>
-    <table>
+    <table border="1">
       <tbody>
         <tr>
           <td>Episode</td>
@@ -30,7 +30,7 @@
         <tr>
           <td>Characters</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['characters'].each do |character| %>
                 <tr>
                   <td><%= link_to api_call(character, true), "../characters/#{get_id(character)}" %></td>
@@ -42,7 +42,7 @@
         <tr>
           <td>Planets</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['planets'].each do |planet| %>
                 <tr>
                   <td><%= link_to api_call(planet, true), "../planets/#{get_id(planet)}" %></td>
@@ -54,7 +54,7 @@
         <tr>
           <td>Starships</td>
           <td>
-            <table>
+            <table border="1" width="100%">
               <% @details['starships'].each do |starship| %>
                 <tr>
                   <td><%= link_to api_call(starship, true), "../ships/#{get_id(starship)}" %></td>
